@@ -209,6 +209,52 @@ Docker prerequisites can be found here, [Spring Boot Docker Sample](https://gith
 
 * For more commands like, get inside container, logging, deleting container, image, 
   * you can find in here, [Dockerized Application Sample Commands](https://github.com/yewin-mm/spring-boot-docker-sample/blob/master/README.md#instruction)
+  
+* Check Docker disk space as some unnecessary images and unused containers may take much space
+  * Type 
+    ```sh
+    docker system df
+    ```
+  
+* Below are for cleaning all unused conatiners, images, networks and volumes
+  * If you've tested many containers and images and if you are lazy to remove (delete) tested many containers and images `one by one`, <br>
+  you can remove that by below commands are to reduce taking docker space on your disk.
+  * You should clean (remove) `unused containers and images` to reduce taking docker space. <br> 
+  But if you've planned to use that container in the future, you don't need to remove the container and just stopping is ok. <br>
+  You can even remove the container without removing its image if you've planned to use in the future.
+  * You can check disk space first by typing `docker system df`.
+  
+  * To remove all unused or stopped or unsuccessful containers (recommended way)
+    * Type 
+      ```sh
+      docker container prune
+      ```
+
+  * To remove all unused images (recommended way)
+    * Type
+       ```sh
+       docker image prune
+       ```
+
+  * To remove all unused networks <br> (need to take care your network because your container may just stop for a while and if that container used the network, that will also be removed as container is stopped that time if you do below command. <br> Please note that you can't start your container again after you clean the network which are mapping (bind) with container)
+    * Type
+       ```sh
+       docker network prune
+       ```
+
+  * To remove all unused volume (need to take care your volumes is used by other unactive containers which will use in future <br> because it may lose your data if you stored some data from database in that volume)
+    * Type
+       ```sh
+       docker volume prune
+       ```
+
+  * To remove all unused containers, images and networks (including cache)
+    * Type
+       ```sh
+       docker system prune
+       ```
+
+  * For more about cleaning multiple docker conatiners, images, etc, you can find in google.
 
 * Testing
   * Import `spring-boot-jpa-docker.postman_collection.json` file under project directory (see that file in project directory) into your installed Postman application.
