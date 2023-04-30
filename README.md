@@ -62,7 +62,7 @@ You should learn basic Docker Application without application first. You can see
 <a name="built-with"></a>
 ### 🪓 Built With
 This project is built with
-* [Java](https://www.oracle.com/au/java/technologies/javase/javase-jdk8-downloads.html)
+* [Java](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html)
 * [Maven](https://maven.apache.org/download.cgi)
 * [Containerized MySQL Database](https://github.com/yewin-mm/mysql-docker-container)
 * [Docker](https://www.docker.com/products/docker-desktop/)
